@@ -21,26 +21,6 @@ public class StudentService {
 		return res;
 	}
 
-	public int insertStudentApi(Student student) {
-		int res = -1;
-		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
-			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
-			res = studentMapper.insertStudentApi(student);
-			sqlSession.commit();
-		} 
-		return res;
-	}
-	
-	public int insertStsudentAnnotation(Student student){
-		int res = -1;
-		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
-			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
-			res = studentMapper.insertStsudentAnnotation(student);
-			sqlSession.commit();
-		} 
-		return res;
-	}
-
 	public Student selectStudent(Student student) {
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
 			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
@@ -48,20 +28,6 @@ public class StudentService {
 		}
 	}
 
-	public Student selectStudentApi(Student student) {
-		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
-			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
-			return studentMapper.selectStudentApi(student);
-		} 
-	}
-	
-	public Student selectStudentAnnotation(Student student) {
-		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
-			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
-			return studentMapper.selectStudentAnnotation(student);
-		}
-	}
-	
 	public List<Student> selectStudentByAll() {
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
 			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
@@ -69,45 +35,11 @@ public class StudentService {
 		}
 	}
 
-	public List<Student> selectStudentByAllApi() {
-		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
-			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
-			return studentMapper.selectStudentByAllApi();
-		} 
-	}
-	
-	public List<Student> selectStudentByAllAnnotation(){
-		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
-			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
-			return studentMapper.selectStudentByAllAnnotation();
-		}
-	}
-	
 	public int updateStudent(Student student) {
 		int res = -1;
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
 			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
 			res = studentMapper.updateStudent(student);
-			sqlSession.commit();
-		} 
-		return res;
-	}
-
-	public int updateStudentApi(Student student) {
-		int res = -1;
-		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
-			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
-			res = studentMapper.updateStudentApi(student);
-			sqlSession.commit();
-		} 
-		return res;
-	}
-
-	public int updateStudentAnnotation(Student student) {
-		int res = -1;
-		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
-			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
-			res = studentMapper.updateStudentAnnotation(student);
 			sqlSession.commit();
 		} 
 		return res;
@@ -123,23 +55,4 @@ public class StudentService {
 		return res;
 	}
 
-	public int deleteStudentApi(Student student) {
-		int res = -1;
-		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
-			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
-			res = studentMapper.deleteStudentApi(student);
-			sqlSession.commit();
-		} 
-		return res;
-	}
-
-	public int deleteStudentAnnotation(Student student) {
-		int res = -1;
-		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
-			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
-			res = studentMapper.deleteStudentAnnotation(student);
-			sqlSession.commit();
-		} 
-		return res;
-	}
 }

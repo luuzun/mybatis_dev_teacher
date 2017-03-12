@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 
-import kr.or.dgit.mybatis_dev_teacher.persistence.PhoneNumber;
+import kr.or.dgit.mybatis_dev_teacher.dto.PhoneNumber;
 
 public class PhoneTypeHandler extends BaseTypeHandler<PhoneNumber> {
 

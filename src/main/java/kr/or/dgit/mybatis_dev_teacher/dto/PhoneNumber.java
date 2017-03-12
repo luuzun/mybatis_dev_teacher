@@ -1,4 +1,4 @@
-package kr.or.dgit.mybatis_dev_teacher.persistence;
+package kr.or.dgit.mybatis_dev_teacher.dto;
 
 public class PhoneNumber {
 	private String countryCode;

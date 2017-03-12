@@ -1,4 +1,4 @@
-package kr.or.dgit.mybatis_dev_teacher.persistence;
+package kr.or.dgit.mybatis_dev_teacher.dto;
 
 import java.util.Date;
 

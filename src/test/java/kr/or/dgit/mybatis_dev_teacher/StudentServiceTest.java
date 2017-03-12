@@ -25,7 +25,7 @@ public class StudentServiceTest {
 		studentService = null;
 	}
 
-	@Test
+/*	@Test
 	public void testInsertStudent() {
 		Calendar newDate = GregorianCalendar.getInstance();
 		newDate.set(1990, 2, 28);
@@ -43,6 +43,22 @@ public class StudentServiceTest {
 		Student student = new Student(4, "leegyomin4", "lee@test.co.kr", newDate.getTime(), new PhoneNumber("010-1234-1234"));
 		int res = studentService.insertStudentApi(student);
 		Assert.assertEquals(1, res);
-	}
+	}*/
 
+	@Test
+	public void testSelectStudent(){
+		Student student = new Student();
+		student.setStudId(3);
+		
+		Student selectStudent = studentService.selectStudent(student);
+		Assert.assertEquals(student, selectStudent);
+	}
+	
+	@Test
+	public void testSelectStudentApi(){
+		Student student = new Student();
+		student.setStudId(3);
+		Student selectStudent = studentService.selectStudentApi(student);
+		Assert.assertEquals(student, selectStudent);
+	}
 }

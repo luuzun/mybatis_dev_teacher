@@ -72,4 +72,31 @@ public class Student {
 		return String.format("%s %s %s %s %s", studId, name, email, dob, phone);
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + studId;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Student)) {
+			return false;
+		}
+		Student other = (Student) obj;
+		if (studId != other.studId) {
+			return false;
+		}
+		return true;
+	}
+
+	
 }

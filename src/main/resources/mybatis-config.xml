@@ -8,7 +8,7 @@
 	</settings>
 
 	<typeAliases>
-		<package name="kr.or.dgit.mybatis_dev_teacher.persistence" />
+		<package name="kr.or.dgit.mybatis_dev_teacher.dto" />
 	</typeAliases>
 
 	<typeHandlers>
@@ -27,6 +27,6 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="kr.or.dgit.mybatis_dev_teacher.mappers.StudentMapper"/>
+		<mapper resource="kr/or/dgit/mybatis_dev_teacher/mappers/StudentMapper.xml"/>
 	</mappers>
 </configuration>

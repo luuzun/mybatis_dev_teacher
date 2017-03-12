@@ -10,6 +10,7 @@ import kr.or.dgit.mybatis_dev_teacher.util.MybatisSqlSessionFactory;
 
 public class SqlSessionTest {
 	private static SqlSessionFactory sqlSessionFactory;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		sqlSessionFactory = MybatisSqlSessionFactory.getSqlSessionFactory();

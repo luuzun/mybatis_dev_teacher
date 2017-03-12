@@ -1,7 +1,9 @@
 package kr.or.dgit.mybatis_dev_teacher;
 
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -34,13 +36,12 @@ public class StudentServiceTest {
 		int res = studentService.insertStudent(student);
 		Assert.assertEquals(1, res);
 	}
-	
-	@Test
+*/	
 	
 	@Test
 	public void testSelectStudent(){
 		Student student = new Student();
-		student.setStudId(3);
+		student.setStudId(1);
 		
 		Student selectStudent = studentService.selectStudent(student);
 		Assert.assertEquals(student, selectStudent);
@@ -53,7 +54,7 @@ public class StudentServiceTest {
 		Assert.assertNotEquals(emptyList, lists);
 	}
 	
-*/
+
 	@Test
 	public void testUpdateStudent(){
 		Student searchStd = new Student();

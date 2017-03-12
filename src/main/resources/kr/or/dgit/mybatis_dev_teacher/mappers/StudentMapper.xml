@@ -45,4 +45,20 @@
     	<!-- select STUD_ID, NAME, EMAIL, PHONE, DOB from students -->
     	<include refid="selectSql" />
     </select>
+    
+    <update id="updateStudent" parameterType="Student">
+    	UPDATE STUDENTS SET NAME=#{name}, EMAIL=#{email}, PHONE=#{phone} WHERE STUD_ID=#{studId}
+    </update>
+    
+    <update id="update" parameterType="Student">
+    	UPDATE STUDENTS SET NAME=#{name}, EMAIL=#{email}, PHONE=#{phone} WHERE STUD_ID=#{studId}
+    </update>
+    
+    <delete id="deleteStudent" parameterType="Student">
+    	Delete From Students where  STUD_ID=#{studId}
+    </delete>
+
+    <delete id="delete" parameterType="Student">
+    	Delete From Students where  STUD_ID=#{studId}
+    </delete>
 </mapper>

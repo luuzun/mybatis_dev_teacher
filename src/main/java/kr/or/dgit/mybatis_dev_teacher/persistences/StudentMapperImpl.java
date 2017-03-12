@@ -72,7 +72,39 @@ public class StudentMapperImpl implements StudentMapper{
 		return sqlSession.getMapper(StudentMapper.class).selectStudentByAllAnnotation();
 	}
 
+	@Override
+	public int updateStudent(Student student) {
+		log.debug("updateStudent()");
+		return sqlSession.getMapper(StudentMapper.class).updateStudent(student);
+	}
 
+	@Override
+	public int updateStudentApi(Student student) {
+		log.debug("updateStudentApi()");
+		return sqlSession.update(nameSpace+".update", student);
+	}
 
-	
+	@Override
+	public int updateStudentAnnotation(Student student) {
+		log.debug("updateStudentAnnotation()");
+		return sqlSession.getMapper(StudentMapper.class).updateStudentAnnotation(student);
+	}
+
+	@Override
+	public int deleteStudent(Student student) {
+		log.debug("deleteStudent()");
+		return sqlSession.getMapper(StudentMapper.class).deleteStudent(student);
+	}
+
+	@Override
+	public int deleteStudentApi(Student student) {
+		log.debug("deleteStudentApi()");
+		return sqlSession.delete(nameSpace+".delete", student);
+	}
+
+	@Override
+	public int deleteStudentAnnotation(Student student) {
+		log.debug("deleteStudentAnnotation()");
+		return sqlSession.getMapper(StudentMapper.class).deleteStudentAnnotation(student);
+	}
 }

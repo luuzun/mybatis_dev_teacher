@@ -1,5 +1,7 @@
 package kr.or.dgit.mybatis_dev_teacher.persistences;
 
+import java.util.List;
+
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.session.SqlSession;
@@ -29,6 +31,12 @@ public class StudentMapperImpl implements StudentMapper{
 	}
 
 	@Override
+	public int insertStsudentAnnotation(Student student) {
+		log.debug("insertStsudentAnnotation()");
+		return sqlSession.getMapper(StudentMapper.class).insertStsudentAnnotation(student);
+	}
+	
+	@Override
 	public Student selectStudent(Student student) {
 		log.debug("selectStudent()");
 		return sqlSession.getMapper(StudentMapper.class).selectStudent(student);
@@ -39,4 +47,32 @@ public class StudentMapperImpl implements StudentMapper{
 		log.debug("selectStudentApi()");
 		return sqlSession.selectOne(nameSpace+".select", student);
 	}
+
+	@Override
+	public Student selectStudentAnnotation(Student student) {
+		log.debug("selectStudentAnnotation()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentAnnotation(student);
+	}
+	
+	@Override
+	public List<Student> selectStudentByAll() {
+		log.debug("selectStudents()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentByAll();
+	}
+
+	@Override
+	public List<Student> selectStudentByAllApi() {
+		log.debug("selectStudentsApi()");		
+		return sqlSession.selectList(nameSpace+".list");
+	}
+
+	@Override
+	public List<Student> selectStudentByAllAnnotation() {
+		log.debug("selectStudentByAllAnnotation()");		
+		return sqlSession.getMapper(StudentMapper.class).selectStudentByAllAnnotation();
+	}
+
+
+
+	
 }

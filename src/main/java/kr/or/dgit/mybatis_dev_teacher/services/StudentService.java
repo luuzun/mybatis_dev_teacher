@@ -28,6 +28,16 @@ public class StudentService {
 		return res;
 	}
 
+	public int insertStudentAutoInc(Student student) {
+		int res = -1;
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			res = studentMapper.insertStudentAutoInc(student);
+			sqlSession.commit();
+		} 
+		return res;
+	}
+	
 	public Student selectStudent(Student student) {
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
 			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);

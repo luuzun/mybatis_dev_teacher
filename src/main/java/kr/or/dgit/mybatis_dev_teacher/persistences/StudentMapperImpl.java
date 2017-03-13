@@ -24,6 +24,12 @@ public class StudentMapperImpl implements StudentMapper{
     }
 
 	@Override
+	public int insertStudentAutoInc(Student student) {
+		log.debug("insertStudentAutoInc()");
+		return sqlSession.getMapper(StudentMapper.class).insertStudentAutoInc(student);
+	}
+	
+	@Override
 	public Student selectStudent(Student student) {
 		log.debug("selectStudent()");
 		return sqlSession.getMapper(StudentMapper.class).selectStudent(student);

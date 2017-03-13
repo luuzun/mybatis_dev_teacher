@@ -56,7 +56,22 @@ public class StudentServiceTest {
 	}
 	
 	@Test
-	public void bTestSelectStudent(){
+	public void bTestInsertStudentAutoInc() {
+		Calendar newDate = GregorianCalendar.getInstance();
+		newDate.set(1980, 5, 28);
+		
+		Student student = new Student();
+		student.setName("Cho Si Eun");
+		student.setEmail("lee@test.co.kr");
+		student.setDob(newDate.getTime());
+		student.setPhone(new PhoneNumber("010-2323-3434"));
+		
+		int res = studentService.insertStudentAutoInc(student);
+		Assert.assertEquals(1, res);
+	}
+	
+	@Test
+	public void cTestSelectStudent(){
 		Student student = new Student();
 		student.setStudId(1);
 		
@@ -65,15 +80,14 @@ public class StudentServiceTest {
 	}
 	
 	@Test
-	public void cTestSelectStudentByAll(){
+	public void dTestSelectStudentByAll(){
 		List<Student> lists = studentService.selectStudentByAll();
 		List<Student> emptyList = Collections.emptyList();
 		Assert.assertNotEquals(emptyList, lists);
 	}
 	
-
 	@Test
-	public void dTestUpdateStudent(){
+	public void eTestUpdateStudent(){
 		Student student = new Student();
 		student.setStudId(3);	
 		student.setName("홍길동");

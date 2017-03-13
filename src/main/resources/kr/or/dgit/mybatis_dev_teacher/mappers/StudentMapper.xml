@@ -7,6 +7,11 @@
         VALUES(#{studId}, #{name}, #{email}, #{phone}, #{dob})
     </insert>
     
+    <insert id="insertStudentAutoInc" parameterType="Student" useGeneratedKeys="true" keyProperty="studId">
+    	INSERT INTO STUDENTS(NAME, EMAIL, PHONE, DOB) 
+        VALUES(#{name}, #{email}, #{phone}, #{dob})
+    </insert>
+    
     <sql id="selectSql">
 		select STUD_ID, NAME, EMAIL, PHONE, DOB from students
 	</sql>

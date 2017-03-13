@@ -10,6 +10,13 @@ import kr.or.dgit.mybatis_dev_teacher.persistences.StudentMapperImpl;
 import kr.or.dgit.mybatis_dev_teacher.util.MybatisSqlSessionFactory;
 
 public class StudentService {
+	private static final StudentService instance = new StudentService();
+	
+	private StudentService() {}
+
+	public static StudentService getInstance() {
+		return instance;
+	}
 
 	public int insertStudent(Student student) {
 		int res = -1;

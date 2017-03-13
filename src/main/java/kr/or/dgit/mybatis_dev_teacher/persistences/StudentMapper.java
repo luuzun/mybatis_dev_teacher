@@ -15,9 +15,4 @@ public interface StudentMapper {
 	
 	int deleteStudent(Student student);
 
-	
-	// join
-	
-	
-	// Dynamic
 }

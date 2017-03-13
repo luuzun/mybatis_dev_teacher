@@ -30,8 +30,22 @@
     	<include refid="selectSql" />
     </select>
     
+    <sql id="updateSql">
+    	UPDATE STUDENTS
+    </sql>
+    <sql id="setSql">
+    	<set>
+    		<if test="name!=null">NAME=#{name},</if>
+    		<if test="email!=null">EMAIL=#{email},</if>
+    		<if test="phone!=null">PHONE=#{phone},</if>
+    		<if test="dob!=null">DOB=#{dob},</if>
+    	</set>
+    </sql>
     <update id="updateStudent" parameterType="Student">
-    	UPDATE STUDENTS SET NAME=#{name}, EMAIL=#{email}, PHONE=#{phone} WHERE STUD_ID=#{studId}
+    	<!-- UPDATE STUDENTS SET NAME=#{name}, EMAIL=#{email}, PHONE=#{phone}, DOB=#{dob} WHERE STUD_ID=#{studId} -->
+    	<include refid="updateSql"/>
+    	<include refid="setSql"/>
+    	<include refid="whereSql"/>
     </update>
     
     <delete id="deleteStudent" parameterType="Student">

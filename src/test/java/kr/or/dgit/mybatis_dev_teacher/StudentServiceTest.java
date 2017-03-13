@@ -1,14 +1,10 @@
 package kr.or.dgit.mybatis_dev_teacher;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import kr.or.dgit.mybatis_dev_teacher.dto.PhoneNumber;
 import kr.or.dgit.mybatis_dev_teacher.dto.Student;
 import kr.or.dgit.mybatis_dev_teacher.services.StudentService;
 
@@ -104,7 +100,7 @@ public class StudentServiceTest {
 		int res = studentService.insertStudentANNOTATION(student);
 		Assert.assertEquals(1, res);
 	}
-*/	
+	
 	@Test
 	public void testInsertStudentAutoInc() {
 		Calendar newDate = GregorianCalendar.getInstance();
@@ -134,35 +130,69 @@ public class StudentServiceTest {
 		int res = studentService.insertStudentAutoIncANNOTATION(student);
 		Assert.assertEquals(1, res);
 	}
-/*
-	
 
 	
-
-	
-
 	@Test
 	public void testUpdateStudent(){
-		Student searchStd = new Student();
-		searchStd.setStudId(6);	
-		Student student = studentService.findStudent(searchStd);
-		student.setPhone(new PhoneNumber("010-0000-0000"));
+		Student student = new Student();
+		student.setStudId(3);
+		student.setName("3홍길동3");
+		student.setEmail("3lee3@test.co.kr");
+		student.setDob(new Date());
+		student.setPhone(new PhoneNumber("010-3333-3333"));
+
 		int res = studentService.updateStudent(student);
 		Assert.assertEquals(1, res);
 	}
 	
 	@Test
+	public void testUpdateStudentAPI(){
+		Student student = new Student();
+		student.setStudId(4);
+		student.setName("4홍길동4");
+		student.setEmail("4lee4@test.co.kr");
+		student.setDob(new Date());
+		student.setPhone(new PhoneNumber("010-4444-4444"));
+		int res = studentService.updateStudentAPI(student);
+		Assert.assertEquals(1, res);
+	}
+	
+	@Test
+	public void testUpdateStudentANNOTATION(){
+		Student student = new Student();
+		student.setStudId(5);
+		student.setName("5홍길동5");
+		student.setEmail("5lee5@test.co.kr");
+		student.setDob(new Date());
+		student.setPhone(new PhoneNumber("010-5555-5555"));
+		
+		int res = studentService.updateStudentANNOTATION(student);
+		Assert.assertEquals(1, res);
+	}
+	*/
+
+	@Test
 	public void testDeleteStudent(){
-		Calendar newDate = GregorianCalendar.getInstance();
-		newDate.set(1990, 2, 28);
-		
-		Student insStd = new Student(3, "leegyomin", "lee@test.co.kr", newDate.getTime(), new PhoneNumber("010-1234-1234"));
-		studentService.insertStudent(insStd);
-		
 		Student student = new Student();
 		student.setStudId(3);
 		int res = studentService.deleteStudent(student);
 		Assert.assertEquals(1, res);
 	}
-	*/	
+	
+	@Test
+	public void testDeleteStudentAPI(){
+		Student student = new Student();
+		student.setStudId(4);
+		int res = studentService.deleteStudentAPI(student);
+		Assert.assertEquals(1, res);
+	}
+	
+	@Test
+	public void testDeleteStudentANNOTATION(){
+		Student student = new Student();
+		student.setStudId(5);
+		int res = studentService.deleteStudentANNOTATION(student);
+		Assert.assertEquals(1, res);
+	}
+		
 }

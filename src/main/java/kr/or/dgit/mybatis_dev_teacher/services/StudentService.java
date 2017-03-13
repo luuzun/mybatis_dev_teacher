@@ -116,6 +116,25 @@ public class StudentService {
 		return res;
 	}
 	
+	public int updateStudentAPI(Student student) {
+		int res = -1;
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			res = studentMapper.updateStudentAPI(student);
+			sqlSession.commit();
+		} 
+		return res;
+	}
+	
+	public int updateStudentANNOTATION(Student student) {
+		int res = -1;
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			res = studentMapper.updateStudentANNOTATION(student);
+			sqlSession.commit();
+		} 
+		return res;
+	}
 	//////////////// delete ////////////////////
 	public int deleteStudent(Student student) {
 		int res = -1;
@@ -127,4 +146,23 @@ public class StudentService {
 		return res;
 	}
 
+	public int deleteStudentAPI(Student student) {
+		int res = -1;
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			res = studentMapper.deleteStudentAPI(student);
+			sqlSession.commit();
+		} 
+		return res;
+	}
+	
+	public int deleteStudentANNOTATION(Student student) {
+		int res = -1;
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			res = studentMapper.deleteStudentANNOTATION(student);
+			sqlSession.commit();
+		} 
+		return res;
+	}
 }

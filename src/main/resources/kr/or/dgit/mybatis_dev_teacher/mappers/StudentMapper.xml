@@ -50,12 +50,37 @@
     	<include refid="selectSql" />
     </select>
     
+    <sql id="updateSql">
+    	UPDATE STUDENTS 
+    </sql>
+    <sql id="setSql">
+    	<set>
+    		<if test="name !=null">		name=#{name},	</if>
+    		<if test="email !=null">	email=#{email},	</if>
+    		<if test="phone !=null">	phone=#{phone},	</if>
+    		<if test="dob !=null">		dob=#{dob},		</if>
+    	</set>
+    </sql>
+    
     <update id="updateStudent" parameterType="Student">
-    	UPDATE STUDENTS SET NAME=#{name}, EMAIL=#{email}, PHONE=#{phone} WHERE STUD_ID=#{studId}
+    	<include refid="updateSql"/>
+    	<include refid="setSql"/>
+    	<include refid="whereSql"/>
     </update>
+    
+    <update id="update" parameterType="Student">
+    	<include refid="updateSql"/>
+    	<include refid="setSql"/>
+    	<include refid="whereSql"/>
+    </update>
+    
     
     <delete id="deleteStudent" parameterType="Student">
     	Delete From Students where  STUD_ID=#{studId}
     </delete>
 
+    <delete id="delete" parameterType="Student">
+    	Delete From Students where  STUD_ID=#{studId}
+    </delete>
+    
 </mapper>

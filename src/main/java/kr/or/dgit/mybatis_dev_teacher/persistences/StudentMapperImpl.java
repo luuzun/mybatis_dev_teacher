@@ -100,6 +100,18 @@ public class StudentMapperImpl implements StudentMapper{
 		return sqlSession.getMapper(StudentMapper.class).updateStudent(student);
 	}
 
+	@Override
+	public int updateStudentAPI(Student student) {
+		log.debug("updateStudentAPI()");
+		return sqlSession.update(namespace+".update", student);
+	}
+
+	@Override
+	public int updateStudentANNOTATION(Student student) {
+		log.debug("updateStudentANNOTATION()");
+		return sqlSession.getMapper(StudentMapper.class).updateStudentANNOTATION(student);
+	}
+	
 	
 	//////////////// delete ////////////////////
 	@Override
@@ -107,6 +119,20 @@ public class StudentMapperImpl implements StudentMapper{
 		log.debug("deleteStudent()");
 		return sqlSession.getMapper(StudentMapper.class).deleteStudent(student);
 	}
+
+	@Override
+	public int deleteStudentAPI(Student student) {
+		log.debug("deleteStudentAPI()");
+		return sqlSession.delete(namespace+".delete", student);
+	}
+
+	@Override
+	public int deleteStudentANNOTATION(Student student) {
+		log.debug("deleteStudentANNOTATION()");
+		return sqlSession.getMapper(StudentMapper.class).deleteStudentANNOTATION(student);
+	}
+
+
 
 
 

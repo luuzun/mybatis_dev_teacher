@@ -1,9 +1,7 @@
 package kr.or.dgit.mybatis_dev_teacher;
 
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -28,38 +26,126 @@ public class StudentServiceTest {
 	}
 
 /*	@Test
-	public void testInsertStudent() {
-		Calendar newDate = GregorianCalendar.getInstance();
-		newDate.set(1990, 2, 28);
-		
-		Student student = new Student(3, "leegyomin", "lee@test.co.kr", newDate.getTime(), new PhoneNumber("010-1234-1234"));
-		int res = studentService.insertStudent(student);
-		Assert.assertEquals(1, res);
-	}
-*/	
-	
-	@Test
-	public void testSelectStudent(){
+	public void testFindStudent(){
 		Student student = new Student();
 		student.setStudId(1);
 		
-		Student selectStudent = studentService.selectStudent(student);
+		Student selectStudent = studentService.findStudent(student);
 		Assert.assertEquals(student, selectStudent);
 	}
 	
 	@Test
-	public void testSelectStudentByAll(){
-		List<Student> lists = studentService.selectStudentByAll();
+	public void testFindStudentByAll(){
+		List<Student> lists = studentService.findStudentByAll();
 		List<Student> emptyList = Collections.emptyList();
 		Assert.assertNotEquals(emptyList, lists);
 	}
+	
+	@Test
+	public void testFindStudentAPI(){
+		Student student = new Student();
+		student.setStudId(1);
+		
+		Student selectStudent = studentService.findStudentAPI(student);
+		Assert.assertEquals(student, selectStudent);
+	}
+	
+	@Test
+	public void testFindStudentByAllAPI(){
+		List<Student> lists = studentService.findStudentByAllAPI();
+		List<Student> emptyList = Collections.emptyList();
+		Assert.assertNotEquals(emptyList, lists);
+	}
+
+	
+	@Test
+	public void testFindStudentANNOTATION(){
+		Student student = new Student();
+		student.setStudId(1);
+		
+		Student selectStudent = studentService.findStudentANNOTATION(student);
+		Assert.assertEquals(student, selectStudent);
+	}
+	
+	@Test
+	public void testFindStudentByAllANNOTATION(){
+		List<Student> lists = studentService.findStudentByAllANNOTATION();
+		List<Student> emptyList = Collections.emptyList();
+		Assert.assertNotEquals(emptyList, lists);
+	}
+
+	
+	@Test
+	public void testInsertStudent() {
+		Calendar newDate = GregorianCalendar.getInstance();
+		newDate.set(1990, 2, 28);
+		
+		Student student = new Student(3, "홍길동3", "lee@test.co.kr", newDate.getTime(), new PhoneNumber("010-1234-1234"));
+		int res = studentService.insertStudent(student);
+		Assert.assertEquals(1, res);
+	}
+	
+	@Test
+	public void testInsertStudentAPI() {
+		Calendar newDate = GregorianCalendar.getInstance();
+		newDate.set(1990, 3, 28);
+		
+		Student student = new Student(4, "홍길동4", "lee@test.co.kr", newDate.getTime(), new PhoneNumber("010-1234-1234"));
+		int res = studentService.insertStudentAPI(student);
+		Assert.assertEquals(1, res);
+	}
+	
+	@Test
+	public void testInsertStudentANNOTATION() {
+		Calendar newDate = GregorianCalendar.getInstance();
+		newDate.set(1990, 4, 28);
+		
+		Student student = new Student(5, "홍길동5", "lee@test.co.kr", newDate.getTime(), new PhoneNumber("010-1234-1234"));
+		int res = studentService.insertStudentANNOTATION(student);
+		Assert.assertEquals(1, res);
+	}
+*/	
+	@Test
+	public void testInsertStudentAutoInc() {
+		Calendar newDate = GregorianCalendar.getInstance();
+		newDate.set(1990, 2, 28);
+		
+		Student student = new Student();
+		student.setName("홍길동3");
+		student.setEmail("lee3@test.co.kr");
+		student.setDob(newDate.getTime());
+		student.setPhone(new PhoneNumber("010-1234-1234"));
+		
+		int res = studentService.insertStudentAutoInc(student);
+		Assert.assertEquals(1, res);
+	}
+	
+	@Test
+	public void testInsertStudentANNOTATION() {
+		Calendar newDate = GregorianCalendar.getInstance();
+		newDate.set(1990, 2, 28);
+		
+		Student student = new Student();
+		student.setName("홍길동4");
+		student.setEmail("lee4@test.co.kr");
+		student.setDob(newDate.getTime());
+		student.setPhone(new PhoneNumber("010-1234-1234"));
+		
+		int res = studentService.insertStudentAutoIncANNOTATION(student);
+		Assert.assertEquals(1, res);
+	}
+/*
+	
+
+	
+
 	
 
 	@Test
 	public void testUpdateStudent(){
 		Student searchStd = new Student();
 		searchStd.setStudId(6);	
-		Student student = studentService.selectStudent(searchStd);
+		Student student = studentService.findStudent(searchStd);
 		student.setPhone(new PhoneNumber("010-0000-0000"));
 		int res = studentService.updateStudent(student);
 		Assert.assertEquals(1, res);
@@ -78,5 +164,5 @@ public class StudentServiceTest {
 		int res = studentService.deleteStudent(student);
 		Assert.assertEquals(1, res);
 	}
-	
+	*/	
 }

@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -105,4 +106,23 @@ public class StudentServiceTest {
 		Assert.assertEquals(1, res);
 	}
 	
+	@Test
+	public void gTestSelectStudentByAllForResutlMap(){
+		List<Student> lists = studentService.selectStudentByAllForResutlMap();
+		List<Student> emptyList = Collections.emptyList();
+		Assert.assertNotEquals(emptyList, lists);
+	}
+	
+	@Test
+	public void hTestSelectStudentByAllForHashMap(){
+		List<Map<String, Object>> lists = studentService.selectStudentByAllForHashMap();
+		List<Map<String, Object>> emptyList = Collections.emptyList();
+		Assert.assertNotEquals(emptyList, lists);
+	}
+	
+	@Test
+	public void iTestSelectStudentByNoForResultMapExtends(){
+		Student student = studentService.selectStudentByNoForResultMapExtends(1);
+		Assert.assertNotNull(student);
+	}
 }

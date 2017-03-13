@@ -1,6 +1,7 @@
 package kr.or.dgit.mybatis_dev_teacher.persistences;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
@@ -42,7 +43,12 @@ public class StudentMapperImpl implements StudentMapper{
 		return sqlSession.getMapper(StudentMapper.class).selectStudentByAll();
 	}
 
-
+	@Override
+	public List<Student> selectStudentByAllForResutlMap() {
+		log.debug("selectStudentByAllForResutlMap()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentByAllForResutlMap();
+	}
+	
 	@Override
 	public int updateStudent(Student student) {
 		log.debug("updateStudent()");
@@ -54,5 +60,19 @@ public class StudentMapperImpl implements StudentMapper{
 		log.debug("deleteStudent()");
 		return sqlSession.getMapper(StudentMapper.class).deleteStudent(student);
 	}
+
+	@Override
+	public List<Map<String, Object>> selectStudentByAllForHashMap() {
+		log.debug("selectStudentByAllForHashMap()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentByAllForHashMap();
+	}
+
+	@Override
+	public Student selectStudentByNoForResultMapExtends(int studId) {
+		log.debug("selectStudentByNoForResultMapExtends()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentByNoForResultMapExtends(studId);
+	}
+
+
 
 }

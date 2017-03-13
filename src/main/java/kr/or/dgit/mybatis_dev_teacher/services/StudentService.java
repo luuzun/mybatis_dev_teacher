@@ -1,6 +1,7 @@
 package kr.or.dgit.mybatis_dev_teacher.services;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -52,6 +53,26 @@ public class StudentService {
 		}
 	}
 
+	public List<Student> selectStudentByAllForResutlMap() {
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			return studentMapper.selectStudentByAllForResutlMap();
+		}
+	}
+	
+	public List<Map<String, Object>> selectStudentByAllForHashMap() {
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			return studentMapper.selectStudentByAllForHashMap();
+		}
+	}
+	
+	public Student selectStudentByNoForResultMapExtends(int studId){
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			return studentMapper.selectStudentByNoForResultMapExtends(studId);
+		}
+	}
 	public int updateStudent(Student student) {
 		int res = -1;
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {

@@ -1,6 +1,7 @@
 package kr.or.dgit.mybatis_dev_teacher.persistences;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.dgit.mybatis_dev_teacher.dto.Student;
 
@@ -10,6 +11,13 @@ public interface StudentMapper {
 	
 	Student selectStudent(Student student);
 	List<Student> selectStudentByAll();
+	
 	int updateStudent(Student student);
 	int deleteStudent(Student student);
+	
+	//resultset
+	List<Student> selectStudentByAllForResutlMap();
+	List<Map<String, Object>> selectStudentByAllForHashMap();
+	
+	Student selectStudentByNoForResultMapExtends(int studId);
 }

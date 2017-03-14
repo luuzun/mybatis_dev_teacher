@@ -28,6 +28,20 @@
 		<include refid="selectSql"/>
 	</select>
 	
+	<!-- hashmap으로 결과 리턴 -->
+	<select id="selectStudentByNoForHashMap" parameterType="Student" resultType="map">
+		<include refid="selectSql"/>
+		<include refid="whereSql"/>
+	</select>
 	
+	<select id="selectStudentByAllForHashMap" resultType="map">
+		<include refid="selectSql"/>
+	</select>
 	
 </mapper>
+
+
+
+
+
+

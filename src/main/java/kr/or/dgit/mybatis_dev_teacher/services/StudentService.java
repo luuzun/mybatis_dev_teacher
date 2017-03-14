@@ -1,6 +1,7 @@
 package kr.or.dgit.mybatis_dev_teacher.services;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
@@ -28,5 +29,17 @@ public class StudentService {
 		}
 	}
 	
+	public Map<String, Object> selectStudentByNoForHashMap(Student student){
+		log.debug("selectStudentByNoForHashMap()");
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			return sqlSession.selectOne(namespace+".selectStudentByNoForHashMap", student);
+		}
+	}
 	
+	public List<Map<String, Object>> selectStudentByAllForHashMap(){
+		log.debug("selectStudentByAllForHashMap()");
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			return sqlSession.selectList(namespace+".selectStudentByAllForHashMap");
+		}
+	}
 }

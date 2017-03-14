@@ -83,4 +83,18 @@ public class StudentService {
 			return studentMapper.selectStudentWithAddressNestedMapper(studId);
 		}
 	}
+	
+	public List<Student> selectStudentWithAddressExtMap(){
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			return studentMapper.selectStudentWithAddressExtMap();
+		}
+	}
+	
+	public Student selectStudentOneToOne(int studId) {
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			return studentMapper.selectStudentOneToOne(studId);
+		}
+	}
 }

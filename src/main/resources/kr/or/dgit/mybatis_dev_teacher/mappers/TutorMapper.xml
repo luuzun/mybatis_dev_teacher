@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.dgit.mybatis_dev_teacher.mappers.TutorMapper">
+
+	<resultMap id="TutorWithAddressAndCourseResult" type="Tutor">
+		<id property="tutorId" column="tutor_id" />
+		<result property="name" column="tutor_name" />
+		<result property="email" column="email" />
+		<association property="address" resultMap="kr.or.dgit.mybatis_dev_teacher.mappers.AddressMapper.AddressResult" />
+		<collection property="courses" resultMap="kr.or.dgit.mybatis_dev_teacher.mappers.CourseMapper.CourseResult" />
+	</resultMap>
+
+</mapper>

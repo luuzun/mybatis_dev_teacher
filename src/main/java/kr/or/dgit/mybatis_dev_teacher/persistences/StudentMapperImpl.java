@@ -71,4 +71,16 @@ public class StudentMapperImpl implements StudentMapper{
 		log.debug("selectStudentWithAddressNestedMapper()");
 		return sqlSession.getMapper(StudentMapper.class).selectStudentWithAddressNestedMapper(studId);
 	}
+
+	@Override
+	public List<Student> selectStudentWithAddressExtMap() {
+		log.debug("selectStudentWithAddressExtMap()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentWithAddressExtMap();
+	}
+
+	@Override
+	public Student selectStudentOneToOne(int studId) {
+		log.debug("selectStudentOneToOne()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentOneToOne(studId);
+	}
 }

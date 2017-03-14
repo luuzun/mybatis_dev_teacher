@@ -93,7 +93,7 @@ public class StudentServiceTest {
 			}
 		}
 		Assert.assertNotEquals(emptyList, lists);
-	}*/
+	}
 	
 	@Test
 	public void testSelectStudentByAllForMapper(){
@@ -107,4 +107,18 @@ public class StudentServiceTest {
 		Student student = studentService.selectStudentWithAddressNestedMapper(1);
 		Assert.assertNotNull(student);
 	}
+
+	@Test
+	public void testSelectStudentWithAddressExtMap(){
+		List<Student> lists = studentService.selectStudentWithAddressExtMap();
+		List<Student> emptyList = Collections.emptyList();
+		Assert.assertNotEquals(emptyList, lists);
+	}
+		
+	@Test
+	public void testSelectStudentOneToOne(){
+		Student student = studentService.selectStudentOneToOne(1);
+		Assert.assertNotNull(student);
+	}
+*/
 }

@@ -22,6 +22,14 @@ public class StudentService {
 		}
 	}
 	
+	public Student selectStudentByNoAssociationAddress(Student student){
+		log.debug("selectStudentByNoAssociationAddress()");
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			return sqlSession.selectOne(namespace+".selectStudentByNoAssociationAddress", student);
+		}
+	}
+	
+	
 	public List<Student> selectStudentByAllForResultMap(){
 		log.debug("selectStudentByAllForResultMap()");
 		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
@@ -42,4 +50,22 @@ public class StudentService {
 			return sqlSession.selectList(namespace+".selectStudentByAllForHashMap");
 		}
 	}
+	
+	public Student selectStudentByNoWithAddress(Student student){
+		log.debug("selectStudentByNoWithAddress()");
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			return sqlSession.selectOne(namespace+".selectStudentByNoWithAddress", student);
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+

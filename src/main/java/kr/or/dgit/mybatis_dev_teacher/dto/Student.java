@@ -8,6 +8,7 @@ public class Student {
 	private String email;
 	private Date dob;
 	private PhoneNumber phone;
+	private Address address;
 	
 	public Student() {}
 
@@ -67,9 +68,18 @@ public class Student {
 		this.phone = phone;
 	}
 
+	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("%s %s %s %s %s", studId, name, email, dob, phone);
+		return String.format("%s %s %s %s %s %s", studId, name, email, dob, phone, address);
 	}
 
 	@Override

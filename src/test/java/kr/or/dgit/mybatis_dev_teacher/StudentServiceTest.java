@@ -1,9 +1,9 @@
 package kr.or.dgit.mybatis_dev_teacher;
 
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -36,7 +36,7 @@ public class StudentServiceTest {
 		Assert.assertEquals(1, res);
 	}*/
 	
-	@Test
+/*	@Test
 	public void testSelectStudentAnnotation(){
 		Student student = new Student();
 		student.setStudId(1);
@@ -74,5 +74,31 @@ public class StudentServiceTest {
 		student.setStudId(5);
 		int res = studentService.deleteStudentAnnotation(student);
 		Assert.assertEquals(1, res);
+	}
+	
+	@Test
+	public void testSelectStudentByAllForResults(){
+		List<Student> lists = studentService.selectStudentByAllForResults();
+		List<Student> emptyList = Collections.emptyList();
+		Assert.assertNotEquals(emptyList, lists);
+	}
+	
+	@Test
+	public void testSelectStudentByAllForResultsMap(){
+		List<Map<String, Object>> lists = studentService.selectStudentByAllForResultsMap();
+		List<Map<String, Object>> emptyList = Collections.emptyList();
+		for(Map<String, Object>map : lists){
+			for(Entry<String, Object>entry : map.entrySet()){
+				System.out.printf("%s -> %s%n", entry.getKey(), entry.getValue());
+			}
+		}
+		Assert.assertNotEquals(emptyList, lists);
+	}*/
+	
+	@Test
+	public void testSelectStudentByAllForMapper(){
+		List<Student> lists = studentService.selectStudentByAllForMapper();
+		List<Student> emptyList = Collections.emptyList();
+		Assert.assertNotEquals(emptyList, lists);
 	}
 }

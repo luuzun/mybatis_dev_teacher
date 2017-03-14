@@ -1,6 +1,7 @@
 package kr.or.dgit.mybatis_dev_teacher.persistences;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
@@ -45,5 +46,23 @@ public class StudentMapperImpl implements StudentMapper{
 	public int deleteStudentAnnotation(Student student) {
 		log.debug("deleteStudentAnnotation()");
 		return sqlSession.getMapper(StudentMapper.class).deleteStudentAnnotation(student);
+	}
+
+	@Override
+	public List<Student> selectStudentByAllForResults() {
+		log.debug("selectStudentByAllForResults()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentByAllForResults();
+	}
+
+	@Override
+	public List<Map<String, Object>> selectStudentByAllForResultsMap() {
+		log.debug("selectStudentByAllForResultsMap()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentByAllForResultsMap();
+	}
+
+	@Override
+	public List<Student> selectStudentByAllForMapper() {
+		log.debug("selectStudentByAllForMapper()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentByAllForMapper();
 	}
 }

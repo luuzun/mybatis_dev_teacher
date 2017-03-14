@@ -101,4 +101,10 @@ public class StudentServiceTest {
 		List<Student> emptyList = Collections.emptyList();
 		Assert.assertNotEquals(emptyList, lists);
 	}
+	
+	@Test
+	public void testSelectStudentWithAddressNestedMapper(){
+		Student student = studentService.selectStudentWithAddressNestedMapper(1);
+		Assert.assertNotNull(student);
+	}
 }

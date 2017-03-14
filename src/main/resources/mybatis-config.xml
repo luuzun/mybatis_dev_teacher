@@ -28,6 +28,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="kr/or/dgit/mybatis_dev_teacher/mappers/StudentMapper.xml"/>
+		<mapper resource="kr/or/dgit/mybatis_dev_teacher/mappers/AddressMapper.xml"/>
 		<package name="kr.or.dgit.mybatis_dev_teacher.persistences"/>
 	</mappers>
 </configuration>

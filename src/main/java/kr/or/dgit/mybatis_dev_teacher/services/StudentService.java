@@ -76,4 +76,11 @@ public class StudentService {
 			return studentMapper.selectStudentByAllForMapper();
 		}
 	}
+	
+	public Student selectStudentWithAddressNestedMapper(int studId) {
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			return studentMapper.selectStudentWithAddressNestedMapper(studId);
+		}
+	}
 }

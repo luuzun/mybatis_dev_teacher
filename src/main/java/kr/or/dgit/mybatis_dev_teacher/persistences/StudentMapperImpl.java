@@ -65,4 +65,10 @@ public class StudentMapperImpl implements StudentMapper{
 		log.debug("selectStudentByAllForMapper()");
 		return sqlSession.getMapper(StudentMapper.class).selectStudentByAllForMapper();
 	}
+
+	@Override
+	public Student selectStudentWithAddressNestedMapper(int studId) {
+		log.debug("selectStudentWithAddressNestedMapper()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentWithAddressNestedMapper(studId);
+	}
 }

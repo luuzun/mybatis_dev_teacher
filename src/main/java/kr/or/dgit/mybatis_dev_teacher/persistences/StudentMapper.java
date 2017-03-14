@@ -57,4 +57,10 @@ public interface StudentMapper {
     @ResultMap("kr.or.dgit.mybatis_dev_teacher.mappers.StudentMapper.StudentResult")
     List<Student> selectStudentByAllForMapper();
 
+    @Select("SELECT STUD_ID, NAME, EMAIL, A.ADDR_ID, STREET, CITY, STATE, ZIP, COUNTRY "
+            + "FROM STUDENTS S LEFT JOIN ADDRESSES A ON S.ADDR_ID=A.ADDR_ID "
+            + "WHERE S.STUD_ID=#{studId}")
+    @ResultMap("kr.or.dgit.mybatis_dev_teacher.mappers.StudentMapper.StudentWithAddressNestedResult")
+    Student selectStudentWithAddressNestedMapper(int studId);
+
 }

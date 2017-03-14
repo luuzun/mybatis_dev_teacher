@@ -2,13 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.or.dgit.mybatis_dev_teacher.mappers.StudentMapper">
 
-    <resultMap id="StudentResult" type="Student">
-        <id property="studId" column="stud_id" />
-        <result property="name" column="name" />
-        <result property="email" column="email" />
-        <result property="phone" column="phone" />
-        <result property="dob" column="dob" />
-        <result property="gender" column="gender" />
-    </resultMap>
+	<resultMap id="StudentResult" type="Student">
+		<id property="studId" column="stud_id" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="dob" column="dob" />
+		<result property="gender" column="gender" />
+	</resultMap>
+
+	<resultMap id="StudentWithAddressNestedResult" type="Student">
+		<id property="studId" column="stud_id" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="dob" column="dob" />
+		<association property="address" resultMap="kr.or.dgit.mybatis_dev_teacher.mappers.AddressMapper.AddressResult" />
+	</resultMap>
 
 </mapper>

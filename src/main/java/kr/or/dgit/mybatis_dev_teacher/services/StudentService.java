@@ -67,12 +67,20 @@ public class StudentService {
 		}
 	}
 	
-	public Student selectStudentByNoForResultMapExtends(int studId){
+	public Student selectStudentByNoWithAddressForAssociation(Student student){
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
 			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
-			return studentMapper.selectStudentByNoForResultMapExtends(studId);
+			return studentMapper.selectStudentByNoWithAddressForAssociation(student);
 		}
 	}
+	
+	public Student selectStudentByNoForResultMapExtends(Student student){
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			return studentMapper.selectStudentByNoForResultMapExtends(student);
+		}
+	}
+	
 	public int updateStudent(Student student) {
 		int res = -1;
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {

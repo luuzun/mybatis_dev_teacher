@@ -17,7 +17,10 @@ public interface StudentMapper {
 	
 	//resultset
 	List<Student> selectStudentByAllForResutlMap();
+	
 	List<Map<String, Object>> selectStudentByAllForHashMap();
 	
-	Student selectStudentByNoForResultMapExtends(int studId);
+	Student selectStudentByNoForResultMapExtends(Student student);
+	
+	Student selectStudentByNoWithAddressForAssociation(Student student);
 }

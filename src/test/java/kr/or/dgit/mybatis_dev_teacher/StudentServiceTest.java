@@ -122,7 +122,19 @@ public class StudentServiceTest {
 	
 	@Test
 	public void iTestSelectStudentByNoForResultMapExtends(){
-		Student student = studentService.selectStudentByNoForResultMapExtends(1);
-		Assert.assertNotNull(student);
+		Student student = new Student();
+		student.setStudId(1);
+		
+		Student extStd = studentService.selectStudentByNoForResultMapExtends(student);
+		Assert.assertNotNull(extStd);
+	}
+	
+	@Test
+	public void jTestSelectStudentByNoWithAddressForAssociation(){
+		Student student = new Student();
+		student.setStudId(1);
+		
+		Student extStd = studentService.selectStudentByNoWithAddressForAssociation(student);
+		Assert.assertNotNull(extStd);
 	}
 }

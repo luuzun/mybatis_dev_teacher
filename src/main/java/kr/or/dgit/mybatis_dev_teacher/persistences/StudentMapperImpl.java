@@ -43,11 +43,7 @@ public class StudentMapperImpl implements StudentMapper{
 		return sqlSession.getMapper(StudentMapper.class).selectStudentByAll();
 	}
 
-	@Override
-	public List<Student> selectStudentByAllForResutlMap() {
-		log.debug("selectStudentByAllForResutlMap()");
-		return sqlSession.getMapper(StudentMapper.class).selectStudentByAllForResutlMap();
-	}
+
 	
 	@Override
 	public int updateStudent(Student student) {
@@ -62,15 +58,27 @@ public class StudentMapperImpl implements StudentMapper{
 	}
 
 	@Override
+	public List<Student> selectStudentByAllForResutlMap() {
+		log.debug("selectStudentByAllForResutlMap()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentByAllForResutlMap();
+	}
+	
+	@Override
 	public List<Map<String, Object>> selectStudentByAllForHashMap() {
 		log.debug("selectStudentByAllForHashMap()");
 		return sqlSession.getMapper(StudentMapper.class).selectStudentByAllForHashMap();
 	}
 
 	@Override
-	public Student selectStudentByNoForResultMapExtends(int studId) {
+	public Student selectStudentByNoForResultMapExtends(Student student) {
 		log.debug("selectStudentByNoForResultMapExtends()");
-		return sqlSession.getMapper(StudentMapper.class).selectStudentByNoForResultMapExtends(studId);
+		return sqlSession.getMapper(StudentMapper.class).selectStudentByNoForResultMapExtends(student);
+	}
+
+	@Override
+	public Student selectStudentByNoWithAddressForAssociation(Student student) {
+		log.debug("selectStudentByNoWithAddressForAssociation()");
+		return sqlSession.getMapper(StudentMapper.class).selectStudentByNoWithAddressForAssociation(student);
 	}
 
 

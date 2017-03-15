@@ -1,13 +1,22 @@
 package kr.or.dgit.mybatis_dev_teacher.persistences;
 
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.DeleteProvider;
+import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.One;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
+import org.apache.ibatis.annotations.UpdateProvider;
 
 import kr.or.dgit.mybatis_dev_teacher.dto.Tutor;
+import kr.or.dgit.mybatis_dev_teacher.provider.TutorProvider;
 
 public interface TutorMapper {
 	
@@ -30,5 +39,26 @@ public interface TutorMapper {
             + "WHERE T.TUTOR_ID=#{tutorId}")
     @ResultMap("kr.or.dgit.mybatis_dev_teacher.mappers.TutorMapper.TutorWithAddressAndCourseResult")
     Tutor selectTutorByIdForResultMap(int tutorId);
+
+    @SelectProvider(type=TutorProvider.class, method="selectAllTutorsProv")
+    List<Tutor> selectAllTutorsProv();
+
+    @SelectProvider(type=TutorProvider.class, method="selectTutorProv")
+    List<Tutor> selectTutorProv(Map<String, Object> param);
+    
+    @SelectProvider(type=TutorProvider.class, method="selectTutorByJoinProv")
+    @ResultMap("kr.or.dgit.mybatis_dev_teacher.mappers.TutorMapper.TutorWithAddressAndCourseResult")
+    List<Tutor> selectTutorByJoinProv(Map<String, Object> param);
+    
+    @InsertProvider(type=TutorProvider.class, method="insertTutor")
+    @Options(useGeneratedKeys=true, keyProperty="tutorId")
+    int insertTutor(Tutor tutor);
+
+    @UpdateProvider(type=TutorProvider.class, method="updateTutor")
+    int updateTutor(Tutor tutor);
+    
+    @DeleteProvider(type=TutorProvider.class, method="deleteTutor")
+    int deleteTutor(Tutor tutor);
+
 
 }

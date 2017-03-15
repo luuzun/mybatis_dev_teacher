@@ -9,6 +9,17 @@ public class Tutor {
     private Address address;
     private List<Course> courses;
     
+    
+	public Tutor() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Tutor(int tutorId, String name, String email) {
+		this.tutorId = tutorId;
+		this.name = name;
+		this.email = email;
+	}
+
 	public int getTutorId() {
 		return tutorId;
 	}

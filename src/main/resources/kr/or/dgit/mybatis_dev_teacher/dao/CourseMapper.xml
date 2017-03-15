@@ -10,4 +10,89 @@
         <result property="endDate" column="end_date"/>
     </resultMap>
 
+	<select id="searchCourse" parameterType="hashmap" resultMap="CourseResult">
+		select * from courses where tutor_id = #{tutorId} 
+		<if test="courseName != null"> <!-- param.getkey("courseName") -->
+			and name like #{courseName}
+		</if> 
+		<if test="startDate !=null">
+			and START_DATE &gt;= #{startDate} <!-- &gt; (>) -->
+		</if>
+		<if test="endDate != null">
+			and END_DATE &lt;= #{endDate}
+		</if>
+	</select>
+	
+	<select id="searchChooseCourse" parameterType="hashmap" resultMap="CourseResult">
+        SELECT * FROM COURSES
+        <choose>
+            <when test="searchBy=='Tutor'">
+                WHERE TUTOR_ID=#{tutorId}
+            </when>
+            <when test="searchBy=='CourseName'">
+                WHERE name like #{courseName}
+            </when>
+            <otherwise>
+                WHERE end_date &lt;=now()
+            </otherwise>
+        </choose>
+    </select>
+	
+	<select id="searchWhereCourse" parameterType="hashmap" resultMap="CourseResult">
+        SELECT * FROM COURSES
+        <where>
+            <if test="tutorId != null">
+                TUTOR_ID = #{tutorId}
+            </if>
+            <if test="courseName != null">
+                AND name like #{courseName}
+            </if>
+            <if test="startDate != null">
+                AND start_date &gt;= ${startDate}
+            </if>
+            <if test="endDate != null">
+                AND end_date &lt;=#{endDate}
+            </if>
+        </where>
+    </select>
+	
+	<select id="searchTrimCourse" parameterType="hashmap" resultMap="CourseResult">
+        SELECT * FROM COURSES
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="tutorId != null"> 
+                TUTOR_ID=#{tutorId}
+            </if>
+            <if test="courseName != null">
+                AND name like #{courseName}
+            </if>
+        </trim>
+    </select>
+	
+	<select id="searchForeachCourse" parameterType="map" resultMap="CourseResult">
+        SELECT * FROM COURSES
+        <if test="tutorIds != null">
+            <where>
+                 tutor_id IN 
+                 <foreach item="tutorId" collection="tutorIds" index="index" 
+                         open="(" close=")" separator=",">
+                    #{tutorId}
+                </foreach>
+            </where>
+        </if>
+    </select>
+	
+
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

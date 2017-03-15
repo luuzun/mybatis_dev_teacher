@@ -57,6 +57,34 @@ public class StudentService {
 			return sqlSession.selectOne(namespace+".selectStudentByNoWithAddress", student);
 		}
 	}
+	
+	public int insertStudent(Student student){
+		log.debug("insertStudent()");
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			int res = sqlSession.insert(namespace+".insertStudent", student);
+			sqlSession.commit();
+			return res;
+		}
+	}
+	
+	public int updateSetStudent(Student student){
+		log.debug("updateSetStudent()");
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			int res =  sqlSession.update(namespace+".updateSetStudent", student);
+			sqlSession.commit();
+			return res;
+		}
+	}
+	
+	public int deleteStudent(Student student){
+		log.debug("deleteStudent()");
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			int res =  sqlSession.delete(namespace+".deleteStudent", student);
+			sqlSession.commit();
+			return res;
+		}
+	}
+
 }
 
 

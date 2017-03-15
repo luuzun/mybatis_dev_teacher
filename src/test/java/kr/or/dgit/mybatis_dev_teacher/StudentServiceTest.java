@@ -1,6 +1,7 @@
 package kr.or.dgit.mybatis_dev_teacher;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -14,6 +15,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import kr.or.dgit.mybatis_dev_teacher.dto.PhoneNumber;
 import kr.or.dgit.mybatis_dev_teacher.dto.Student;
 import kr.or.dgit.mybatis_dev_teacher.services.StudentService;
 
@@ -23,29 +25,70 @@ public class StudentServiceTest {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		System.out.println("setUpBeforeClass()");
 		studentService = new StudentService();
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		System.out.println("tearDownAfterClass()");
 		studentService = null;
 	}
 
-	@Before
-	public void setUp(){
-		System.out.println("setUp()");
+	@Test
+	public void aTestInsertStudent(){
+		Student student = new Student(3, "홍길동", "hong@test.co.kr", new Date(), new PhoneNumber("010-1111-2222"));
+		int res = studentService.insertStudent(student);
+		Assert.assertEquals(1, res);
 	}
 	
-	@After
-	public void tearDown(){
-		System.out.println("tearDown()");
+	@Test
+	public void bTestUpdateSetStudent(){
+		Student student = new Student(3, "3홍길동3", "3hong3@test.co.kr", new Date(), new PhoneNumber("010-3333-4444"));
+		int res = studentService.updateSetStudent(student);
+		Assert.assertEquals(1, res);
+		
+		student.setStudId(3);
+		Student selectStudent = studentService.selectStudentByNoForResultMap(student);
+		System.out.println(selectStudent);
 	}
 	
+	@Test
+	public void cTestUpdateSetStudent(){
+		Student student = new Student();
+		student.setStudId(3);
+		student.setName("4홍길동4");
+		int res = studentService.updateSetStudent(student);
+		Assert.assertEquals(1, res);
+		
+		student.setStudId(3);
+		Student selectStudent = studentService.selectStudentByNoForResultMap(student);
+		System.out.println(selectStudent);
+	}
+	
+	@Test
+	public void dTestUpdateSetStudent(){
+		Student student = new Student();
+		student.setStudId(3);
+		student.setName("5홍길동5");
+		student.setEmail("testtest@test.co.kr");
+		int res = studentService.updateSetStudent(student);
+		Assert.assertEquals(1, res);
+		
+		student.setStudId(3);
+		Student selectStudent = studentService.selectStudentByNoForResultMap(student);
+		System.out.println(selectStudent);
+	}
+	
+	@Test
+	public void eTestDeleteStudent(){
+		
+		Student student = new Student();
+		student.setStudId(3);
+		int res = studentService.deleteStudent(student);
+		Assert.assertEquals(1, res);
+	}
 	///////////////////////////////////////////////////
 	
-	@Test 
+	/*@Test 
 	public void aTestSelectStudentByNoForResultMap(){
 		Student student = new Student();
 		student.setStudId(1);
@@ -104,7 +147,7 @@ public class StudentServiceTest {
 		
 		Student selectStudent = studentService.selectStudentByNoAssociationAddress(student);
 		Assert.assertNotNull(selectStudent);
-	}
+	}*/
 }
 
 

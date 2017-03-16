@@ -39,13 +39,13 @@ public class TutorServiceTest {
 		Assert.assertNotNull(selectTutor);
 	}*/
 	
-	@Test 
+/*	@Test 
 	public void aTestInsertTutor(){
 		Tutor tutor = new Tutor(5, "teacher", "teacher@test.co.kr", new PhoneNumber("111-1111-1111"), Gender.MALE);
 		
 		int res = tutorService.insertTutor(tutor);
 		Assert.assertEquals(1, res);
-	}
+	}*/
 	
 }
 

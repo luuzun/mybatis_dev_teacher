@@ -1,15 +1,14 @@
 package kr.or.dgit.mybatis_dev_teacher;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import kr.or.dgit.mybatis_dev_teacher.dto.Gender;
 import kr.or.dgit.mybatis_dev_teacher.dto.PhoneNumber;
 import kr.or.dgit.mybatis_dev_teacher.dto.Student;
 import kr.or.dgit.mybatis_dev_teacher.services.StudentService;
@@ -33,6 +32,18 @@ public class StudentServiceTest {
 		newDate.set(1990, 2, 28);
 		Student student = new Student(5, "leegyomin4", "lee@test.co.kr", newDate.getTime(), new PhoneNumber("010-1234-1234"));
 		int res = studentService.insertStsudentAnnotation(student);
+		Assert.assertEquals(1, res);
+	}*/
+	
+/*	@Test
+	public void testInsertEnumStudent() {
+		Calendar newDate = GregorianCalendar.getInstance();
+		newDate.set(1990, 2, 28);
+		
+		Student student = new Student(3, "leegyomin4", "lee@test.co.kr", newDate.getTime(), new PhoneNumber("010-1234-1234"));
+		student.setGender(Gender.FEMALE);
+		
+		int res = studentService.insertEnumStudent(student);
 		Assert.assertEquals(1, res);
 	}*/
 	

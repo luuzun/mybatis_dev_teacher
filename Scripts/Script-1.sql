@@ -86,6 +86,13 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  (1,2);
  
  
- 
+ CREATE TABLE USER_PICS(
+    id int(11) not null auto_increment,
+    name varchar(50) default null,
+    pic blob,
+    bio longtext,
+    primary key(id)
+);
+
  
  

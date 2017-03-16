@@ -19,9 +19,9 @@ public class StudentMapperImpl implements StudentMapper{
 	}
 
 	@Override
-	public int insertStsudentAnnotation(Student student) {
+	public int insertStudentAnnotation(Student student) {
 		log.debug("insertStsudentAnnotation()");
-		return sqlSession.getMapper(StudentMapper.class).insertStsudentAnnotation(student);
+		return sqlSession.getMapper(StudentMapper.class).insertStudentAnnotation(student);
 	}
 	
 	@Override
@@ -82,5 +82,11 @@ public class StudentMapperImpl implements StudentMapper{
 	public Student selectStudentOneToOne(int studId) {
 		log.debug("selectStudentOneToOne()");
 		return sqlSession.getMapper(StudentMapper.class).selectStudentOneToOne(studId);
+	}
+
+	@Override
+	public int insertEnumStudent(Student student) {
+		log.debug("insertEnumStudent()");
+		return sqlSession.getMapper(StudentMapper.class).insertEnumStudent(student);
 	}
 }

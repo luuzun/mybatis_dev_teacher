@@ -16,7 +16,7 @@ public class StudentService {
 		int res = -1;
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
 			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
-			res = studentMapper.insertStsudentAnnotation(student);
+			res = studentMapper.insertStudentAnnotation(student);
 			sqlSession.commit();
 		} 
 		return res;
@@ -95,6 +95,15 @@ public class StudentService {
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
 			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
 			return studentMapper.selectStudentOneToOne(studId);
+		}
+	}
+	
+	public int insertEnumStudent(Student student){
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			StudentMapper studentMapper = new StudentMapperImpl(sqlSession);
+			int res = studentMapper.insertEnumStudent(student);
+			sqlSession.commit();
+			return res;
 		}
 	}
 }

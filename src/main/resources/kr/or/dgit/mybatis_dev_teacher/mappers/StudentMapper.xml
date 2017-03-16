@@ -28,5 +28,5 @@
 		<result property="dob" column="dob" />
 		<association property="address" resultMap="kr.or.dgit.mybatis_dev_teacher.mappers.AddressMapper.AddressResult" />
 	</resultMap>
-
+	
 </mapper>

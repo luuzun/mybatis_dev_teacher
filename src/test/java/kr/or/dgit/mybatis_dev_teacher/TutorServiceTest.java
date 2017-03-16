@@ -87,11 +87,11 @@ public class TutorServiceTest {
 		Assert.assertEquals(1, res);
 	}*/
 	
-	@Test
+/*	@Test
 	public void testDeleteTutor(){
 		Tutor tutor = new Tutor();
 		tutor.setTutorId(7);
 		int res = tutorService.deleteTutor(tutor);
 		Assert.assertEquals(1, res);
-	}
+	}*/
 }

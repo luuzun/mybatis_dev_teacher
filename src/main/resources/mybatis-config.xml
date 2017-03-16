@@ -31,6 +31,7 @@
 		<mapper resource="kr/or/dgit/mybatis_dev_teacher/mappers/AddressMapper.xml"/>
 		<mapper resource="kr/or/dgit/mybatis_dev_teacher/mappers/CourseMapper.xml"/>
 		<mapper resource="kr/or/dgit/mybatis_dev_teacher/mappers/TutorMapper.xml"/>
+		<mapper resource="kr/or/dgit/mybatis_dev_teacher/mappers/UserPicMapper.xml"/>
 		<package name="kr.or.dgit.mybatis_dev_teacher.persistences"/>
 	</mappers>
 </configuration>

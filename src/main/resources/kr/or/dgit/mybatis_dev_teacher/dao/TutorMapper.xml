@@ -18,5 +18,9 @@
 		WHERE T.TUTOR_ID=#{tutorId}
 	</select>
 
-
+	<insert id="insertTutor" parameterType="Tutor">
+		INSERT INTO tutors (TUTOR_ID, NAME, EMAIL, PHONE, GENDER)
+		VALUES(#{tutorId}, #{name}, #{email}, #{phone}, #{gender})
+	</insert>
 </mapper>
+

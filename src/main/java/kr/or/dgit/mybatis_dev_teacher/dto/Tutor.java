@@ -7,7 +7,35 @@ public class Tutor {
 	private String name;
 	private String email;
 	private Address address;
+	private Gender gender;
 	private List<Course> courses;
+	private PhoneNumber phone;
+	public Tutor() {}
+
+	public Tutor(int tutorId, String name, String email, PhoneNumber phone, Gender gender) {
+		this.tutorId = tutorId;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.gender = gender;
+	}
+
+	
+	public PhoneNumber getPhone() {
+		return phone;
+	}
+
+	public void setPhone(PhoneNumber phone) {
+		this.phone = phone;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
 
 	public int getTutorId() {
 		return tutorId;

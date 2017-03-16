@@ -76,8 +76,8 @@
 	</select>
 
 	<insert id="insertStudent" parameterType="Student">
-		insert into students(STUD_ID, NAME, EMAIL, PHONE, DOB)
-        VALUES(#{studId}, #{name}, #{email}, #{phone}, #{dob})
+		insert into students(STUD_ID, NAME, EMAIL, PHONE, DOB, GENDER)
+        VALUES(#{studId}, #{name}, #{email}, #{phone}, #{dob}, #{gender})
 	</insert>
 	
 	<update id="updateSetStudent" parameterType="Student">

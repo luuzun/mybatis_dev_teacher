@@ -9,6 +9,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import kr.or.dgit.mybatis_dev_teacher.dto.Gender;
+import kr.or.dgit.mybatis_dev_teacher.dto.PhoneNumber;
 import kr.or.dgit.mybatis_dev_teacher.dto.Tutor;
 import kr.or.dgit.mybatis_dev_teacher.services.TutorService;
 
@@ -37,6 +39,13 @@ public class TutorServiceTest {
 		Assert.assertNotNull(selectTutor);
 	}*/
 	
+	@Test 
+	public void aTestInsertTutor(){
+		Tutor tutor = new Tutor(5, "teacher", "teacher@test.co.kr", new PhoneNumber("111-1111-1111"), Gender.MALE);
+		
+		int res = tutorService.insertTutor(tutor);
+		Assert.assertEquals(1, res);
+	}
 	
 }
 
